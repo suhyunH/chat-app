@@ -15,7 +15,6 @@ const SignIn=()=> {
                     createdAt: serverTimestamp(),
                 });
             }
-            console.log(userMeta);
             alert("signed in");
         }catch{
            alert("error");
