@@ -1,8 +1,9 @@
 import { ref , set} from 'firebase/database';
-import React,{useState, useEffect} from 'react'
+import React from 'react'
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../misc/firebase';
 import EditableInput from '../EditableInput';
+import ProviderBlock from './ProviderBlock';
 
 
 const Dashboard=({onSignOut})=> {
@@ -26,6 +27,7 @@ const Dashboard=({onSignOut})=> {
         </header>
         <div>
             <h3>hey, {profile.name}</h3>
+            <ProviderBlock />
             <hr/>
             <EditableInput
                 name="nickname" 
