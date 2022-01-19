@@ -6,7 +6,7 @@ import {
     uploadBytes,
   } from 'firebase/storage';
   import{ref, set} from "firebase/database"
-import { ref as dbRef, update } from 'firebase/database';
+
   import { storage, database } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
 import ProfileAvatar from '../ProfileAvatar';
