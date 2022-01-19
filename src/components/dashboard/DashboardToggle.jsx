@@ -9,8 +9,7 @@ const DashboardToggle=()=> {
     const onSignOut = useCallback(() => { 
         signOut(auth);
         alert("signed Out");
-        close();
-    },[],)
+    },[]);
     return (
         <>
          <button>DashBoard</button>
