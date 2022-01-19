@@ -9,6 +9,7 @@ import {
 import { ref as dbRef, update } from 'firebase/database';
   import { storage, database } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
+import ProfileAvatar from '../ProfileAvatar';
 
 const fileInputTypes  =".png, .jpeg, .jpg";
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
@@ -71,6 +72,8 @@ const AvatarUploadBtn =()=> {
 
     return (
         <div>
+          {/* 프로필 사진 미리보기 */}
+          <ProfileAvatar src={profile.avatar} name={profile.name} />
             <div>
                 <label htmlFor='avatar-upload'>
                     Select new avatar
