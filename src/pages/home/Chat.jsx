@@ -4,6 +4,7 @@ import { Profiler } from 'react/cjs/react.production.min';
 import ChatBottom from '../../components/chat-window/bottom';
 import Messages from '../../components/chat-window/messages';
 import ChatTop from '../../components/chat-window/top';
+import { CurrentRoomProvider } from '../../context/current-room.context';
 import { useRooms } from '../../context/room.context';
 
 const Chat=()=> {
@@ -17,9 +18,12 @@ const Chat=()=> {
  if(!currentRoom){
    return <h6>Chat {chatId} not found</h6>
  }
+const{name, description} = currentRoom;
+const currentRoomData ={
+  name, description
+};
 
-
-  return <div>
+  return <CurrentRoomProvider data={currentRoomData}>
     <div>
       <ChatTop />
     </div>
@@ -29,7 +33,7 @@ const Chat=()=> {
     <div>
       <ChatBottom />
     </div>
-  </div>;
+  </CurrentRoomProvider>;
 }
 
 export default Chat;

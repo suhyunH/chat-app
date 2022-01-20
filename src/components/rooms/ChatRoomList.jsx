@@ -10,8 +10,8 @@ const location = useLocation();
 return <>  
            {rooms? 
                rooms.map(room => 
-                <Link to={`/chat/${room.id}`}>
-                    <div key={room.id}>
+                <Link to={`/chat/${room.id}`} key={room.id}>
+                    <div>
                         <RoomItems room={room}/>
                     </div>
                 </Link>   

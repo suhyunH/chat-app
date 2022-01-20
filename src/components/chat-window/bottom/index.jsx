@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ChatBottom=() =>{
+const Bottom=() =>{
   return <div></div>;
 }
 
-export default ChatBottom;
+export default Bottom;
