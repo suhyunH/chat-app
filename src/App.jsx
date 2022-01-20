@@ -1,8 +1,9 @@
-import { Switch } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
 import PublicRoute from './components/PublicRoute';
 import { ProfileProvider } from './context/profile.context';
-import Home from './pages/Home';
+import Chat from './pages/home/Chat';
+import Home from './pages/home/index';
 import SignIn from './pages/SignIn';
 
 
