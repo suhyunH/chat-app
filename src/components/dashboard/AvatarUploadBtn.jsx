@@ -68,9 +68,6 @@ const AvatarUploadBtn =()=> {
             database
             );  
             await update(ref(database), updates);
-
-          //  const userAvatarRef = ref(database,`/profiles/${profile.uid}/avatar`);
-          //  await set(userAvatarRef, downloadUrl);
            setIsLoading(false);
            alert("avatar has been uploaded");
        }catch(err){
