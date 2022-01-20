@@ -7,6 +7,7 @@ const Top=()=> {
   const description = useCurrentRoom(v=>v.description);
    return <div>
     <div>
+      <p>_</p>
       <Link to="/">back</Link>
       <h3>{name}</h3>
       <p>{description}</p>
