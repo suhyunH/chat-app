@@ -22,7 +22,7 @@ const CreateRoomBtnModal=()=> {
         setIsLoading(true);
         const newRoomData ={
             name: input,
-            descrition : textArea,
+            description : textArea,
             createdAt: serverTimestamp(),
             admins:{
                 [auth.currentUser.uid]: true,

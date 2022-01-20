@@ -73,7 +73,7 @@ const AvatarUploadBtn =()=> {
     return (
         <div>
           {/* 프로필 사진 미리보기 */}
-          <ProfileAvatar src={profile.avatar} name={profile.name} />
+          {/* <ProfileAvatar src={profile.avatar} name={profile.name} /> */}
             <div>
                 <label htmlFor='avatar-upload'>
                     Select new avatar

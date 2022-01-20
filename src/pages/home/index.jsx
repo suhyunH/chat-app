@@ -1,18 +1,21 @@
 import React from 'react'
-import { Route, Switch,useRouteMatch } from 'react-router-dom'
+import { Route, Switch} from 'react-router-dom'
 import Sidebar from '../../components/Sidebar'
-import { RoomsProvider, useRooms } from '../../context/room.context'
+import { RoomsProvider } from '../../context/room.context'
 import Chat from './Chat'
 
 const Home=()=> {
     return (
         <RoomsProvider>
-            <Sidebar/>
-            <Switch>
+            <Sidebar />
+             <Switch>
                 <Route exact path="/chat/:chatId">
                     <Chat />
                 </Route>
-            </Switch>
+                <Route>
+                    <h6>Select chat</h6>
+                </Route>
+            </Switch> 
         </RoomsProvider>
     )
 }

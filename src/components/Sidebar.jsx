@@ -4,14 +4,6 @@ import DashboardToggle from './dashboard/DashboardToggle'
 import ChatRoomList from './rooms/ChatRoomList'
 
 const Sidebar=()=> {
-    // const topSidebarRef = useRef();
-    // const [height, setHeight] =useState(0);
-    // useEffect(()=>{
-    //     if(topSidebarRef.current){
-    //         setHeight(topSidebarRef.current.scrollHeight);
-    //     }
-    // },[topSidebarRef])
-
     return (
         <>
          <div>
@@ -19,9 +11,10 @@ const Sidebar=()=> {
              <hr/>
              <CreateRoomBtnModal />
              <h5>join conversation</h5>
+         </div>  
+         <div>
+             <ChatRoomList />
          </div>
-
-         <ChatRoomList />  
         </>
     )
 }

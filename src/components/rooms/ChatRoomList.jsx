@@ -1,12 +1,12 @@
 import React from 'react';
 import { useRooms } from '../../context/room.context';
 import RoomItems from './RoomItems';
-import { Route, Link, Switch,useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const ChatRoomList =()=> {
 
 const rooms = useRooms();
-const location = useLocation();
+
 return <>  
            {rooms? 
                rooms.map(room => 
