@@ -5,11 +5,12 @@ import {
     ref as storageRef,
     uploadBytes,
   } from 'firebase/storage';
-  import{ref, set} from "firebase/database"
+  import{ref, update} from "firebase/database"
 
   import { storage, database } from '../../misc/firebase';
 import { useProfile } from '../../context/profile.context';
 import ProfileAvatar from '../ProfileAvatar';
+import { getUserUpdate } from '../../misc/helpers';
 
 const fileInputTypes  =".png, .jpeg, .jpg";
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
@@ -59,8 +60,17 @@ const AvatarUploadBtn =()=> {
            });
            const downloadUrl = await getDownloadURL(avatarFileRef);
 
-           const userAvatarRef = ref(database,`/profiles/${profile.uid}/avatar`);
-           await set(userAvatarRef, downloadUrl);
+
+           const updates = await getUserUpdate(
+            profile.uid, 
+            'avatar', 
+            downloadUrl, 
+            database
+            );  
+            await update(ref(database), updates);
+
+          //  const userAvatarRef = ref(database,`/profiles/${profile.uid}/avatar`);
+          //  await set(userAvatarRef, downloadUrl);
            setIsLoading(false);
            alert("avatar has been uploaded");
        }catch(err){

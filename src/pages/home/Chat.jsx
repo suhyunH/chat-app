@@ -11,7 +11,7 @@ const Chat=()=> {
   const {chatId} = useParams();
   const rooms = useRooms();
   if(!rooms){
-    return "Loading...";
+    return "Loading..";
   }
 
  const currentRoom = rooms.find(room=>room.id ===chatId);
