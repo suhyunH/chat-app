@@ -18,7 +18,7 @@ const EditRoomBtnDrawer = () => {
       .then(()=>{
           alert("succefully updated");
       }).catch(err =>{
-          alert(err.messages);
+          alert("permission_denied");
       })
   }
   const onNameSave = (newName)=>{
@@ -29,7 +29,7 @@ const EditRoomBtnDrawer = () => {
   };
   return <div>
       <button onClick={open}> Room Info</button>
-      <Modal isOpen={isOpen}>
+      <Modal isOpen={isOpen} ariaHideApp={false} >
           <div>
               <h4>Room Information</h4>
           </div>

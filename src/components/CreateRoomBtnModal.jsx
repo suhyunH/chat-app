@@ -1,9 +1,13 @@
 import React,{useState} from 'react'
 import { serverTimestamp, ref, push } from 'firebase/database';
  import { database, auth } from '../misc/firebase';
+import { useModalState } from '../misc/custom-hooks';
+import Modal from 'react-modal/lib/components/Modal';
 
 
 const CreateRoomBtnModal=()=> {
+    const {isOpen, open, close}=useModalState();
+
     const [isLoading, setIsLoading] = useState(false);
     const [input, setInput] = useState("");
     const [textArea, setTextArea] = useState("");
@@ -43,11 +47,11 @@ const CreateRoomBtnModal=()=> {
     }
     return (
         <div>
-            <button >
+            <button onClick={open}>
             Create new ChatRoom     
             </button>  
 
-            <div>
+            <Modal isOpen={isOpen} ariaHideApp={false}>
                 <header>
                     <h2>New chat room</h2>
                 </header>
@@ -58,11 +62,10 @@ const CreateRoomBtnModal=()=> {
 
                         <span >Description</span>
                         <textarea value={textArea} name="description"placeholder='Enter chat room name' required onChange={onChangeTextArea}></textarea> 
-                        <button type='submit'   disabled={isLoading}>Create New Chat Room</button>
+                        <button type='submit' disabled={isLoading}>Create New Chat Room</button>
                     </form>
-                
-              
-            </div>
+                        <button onClick={close}>Close</button>
+            </Modal>
 
         </div>
     )

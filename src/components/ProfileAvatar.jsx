@@ -5,7 +5,7 @@ const ProfileAvatar=({src,name})=> {
     return (
         <div > {src?
             <img src={src}></img>
-             : getNameInitials(name)
+             : <h4>{name || ''}</h4>
         }
         </div>
     )

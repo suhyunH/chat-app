@@ -28,7 +28,7 @@ const DashboardToggle=()=> {
          <button onClick={open}>
              <ProfileAvatar src={profile.avatar} name={profile.name} />
         </button>
-        <Modal isOpen={isOpen}>
+        <Modal isOpen={isOpen} ariaHideApp={false}>
              <Dashboard onSignOut={onSignOut}/> 
              <button onClick={close}>close</button>
         </Modal>
