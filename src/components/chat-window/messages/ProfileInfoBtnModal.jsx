@@ -14,7 +14,7 @@ const ProfileInfoBtnModal = ({profile}) => {
       <button onClick={open} >
           {name}
       </button>
-       <Modal isOpen={isOpen}>
+       <Modal isOpen={isOpen} ariaHideApp={false}>
         <div>
           {name} profile
         </div>

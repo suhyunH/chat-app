@@ -71,8 +71,7 @@ export function useHover() {
         node.removeEventListener('mouseout', handleMouseOut);
       };
     },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [elementRef.current] // Recall only if ref changes
+    [elementRef.current]
   );
 
   return [elementRef, isHovered];
