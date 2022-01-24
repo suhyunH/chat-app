@@ -6,9 +6,24 @@ import { auth } from '../../../misc/firebase';
 import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
 import ProfileInfoBtnModal from './ProfileInfoBtnModal';
+import ImageModal from './ImageModal';
+
+
+const renderFileMessage =(file)=>{
+    if (file.contentType.includes('image')) {
+        return (
+          <div>
+            <ImageModal src={file.url} fileName={file.name} />
+          </div>
+        );
+      }
+    
+
+    return <a href={file.url}>Download {file.name}</a>
+}
 
 const MessageItem = ({message,  handleDelete}) => {
-    const {author, createdAt, text}  = message;
+    const {author, createdAt, text, file}  = message;
     const[selfRef, isHover] =useHover();
 
     const isAdmin = useCurrentRoom(v=>v.isAdmin);
@@ -27,7 +42,8 @@ const MessageItem = ({message,  handleDelete}) => {
         
         </div>
         <div>
-            <span>{text}</span>
+            {text &&<span>{text}</span>}
+            {file && renderFileMessage(file) }
         </div>
         {isAuthor&& 
         <button onClick={()=>handleDelete(message.id)}>x</button>

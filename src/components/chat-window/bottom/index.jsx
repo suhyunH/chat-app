@@ -24,6 +24,8 @@ const Bottom=() =>{
   const [isLoading, setIsLoading] = useState(false);
   const {chatId} = useParams();
   const{profile} =useProfile();
+  
+  
   const onInputChange = (ev)=>{
    const {target:{value}}= ev; 
     setInput(value);
@@ -53,7 +55,7 @@ const Bottom=() =>{
        setIsLoading(false);
      }catch(err){
        setIsLoading(false);
-       alert(err.messages);
+       alert(err.message);
      }
   }
   const onKeyDown=(ev)=>{
@@ -63,9 +65,43 @@ const Bottom=() =>{
     }
   }
 
+  const afterUpload = useCallback(
+    async resultFile => {
+      setIsLoading(true);
+      const updates = {};
+      console.log(resultFile);
+
+      resultFile.forEach(file => {
+         const msgData = assembleMessage(profile, chatId);
+         console.log("ms", msgData);
+         msgData.file = file;
+
+         const messageId = push(ref(database, 'messages')).key;
+
+         updates[`/messages/${messageId}`] = msgData;
+       });
+      const lastMsgId = Object.keys(updates).pop();
+      updates[`/rooms/${chatId}/lastMessage`] = {
+        ...updates[lastMsgId],
+        msgId: lastMsgId,
+       };
+       
+
+       try {
+         await update(ref(database), updates);
+         setIsLoading(false);
+       } catch (err) {
+         setIsLoading(false);
+       alert(err.message);
+      }
+    },
+    [profile]
+  );
+  
+
 
   return <div>
-    <AttachmentBtnModal />
+    <AttachmentBtnModal  afterUpload={afterUpload}/>
     <input placeholder='write a new message here ...' value={input} onChange={onInputChange} onKeyDown={onKeyDown}/>
     <input type="button" value="send" onClick={onSendClick} disabled={isLoading}/>
   </div>;
