@@ -14,7 +14,7 @@ const ImageModal = ({src, fileName}) => {
         View original 
     </a>
     <button onClick={close}>closes</button>
-      </Modal>;
+      </Modal>
   </>
 };
 

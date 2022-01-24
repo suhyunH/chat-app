@@ -23,7 +23,6 @@ const onChange = e => {
   const filtered = fileArr
   .filter(el => el.size <= MAX_FILE_SIZE)
   .slice(0, 5);
-  console.log(filtered);
    setFileList(filtered);
 };
 
@@ -63,7 +62,7 @@ const onUpload = async()=>{
   
   return <>
       <button onClick={open}>fileupload</button>
-    <Modal isOpen={isOpen} ariaHideApp={false}>
+     <Modal isOpen={isOpen} ariaHideApp={false}>
         <h4>Upload files</h4>
         <input type="file" onChange={onChange} multiple/>
         <button disabled={isLoading} onClick={onUpload}>Send to Chat</button>

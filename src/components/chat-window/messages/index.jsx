@@ -1,6 +1,6 @@
 import React,{useEffect, useState, useCallback, useRef} from 'react';
 import { useParams } from 'react-router-dom';
-import { database } from '../../../misc/firebase';
+import { database, storage } from '../../../misc/firebase';
 import {
   ref as dbRef,
   runTransaction,
@@ -12,7 +12,7 @@ import {
   equalTo,
   update,
 } from 'firebase/database';
-import { deleteObject, ref as storageRef } from 'firebase/storage';
+import { deleteObject, ref, ref as storageRef } from 'firebase/storage';
 import { transformToArryWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem';
 
@@ -40,7 +40,7 @@ const Messages=()=> {
       }
     },[])
 
-    const  handleDelete = useCallback(async(msgId)=>{
+    const  handleDelete = useCallback(async(msgId, file)=>{
       if(!window.confirm('Delete This Message?')){
           return;
       }
@@ -62,6 +62,14 @@ const Messages=()=> {
         await update(dbRef(database), updates);
       }catch(err){
         return alert(err.messages);
+      }
+      if(file){
+        try{
+          const fileRef = storageRef(storage, file.url);
+          await deleteObject(fileRef);
+        }catch(err){
+          alert(err.message);
+        }
       }
     },[messages])
  
