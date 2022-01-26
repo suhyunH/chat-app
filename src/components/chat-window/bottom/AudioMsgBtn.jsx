@@ -3,6 +3,11 @@ import { ReactMic } from 'react-mic';
 import { useParams } from 'react-router';
 import { storage } from '../../../misc/firebase';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMicrophone } from '@fortawesome/free-solid-svg-icons'
+import { faMicrophoneSlash } from '@fortawesome/free-solid-svg-icons';
+import { AudioSt } from './chatBottom.styled';
+
 
 const AudioMsgBtn = ({afterUpload}) => {
     const [isRecording, setIsRecording] = useState(false);
@@ -39,17 +44,17 @@ const AudioMsgBtn = ({afterUpload}) => {
         },
         [afterUpload, chatId]
       );
-  return <div>
+  return <AudioSt>
       <button onClick={onClick}  disabled={isUploading}>
-       {isRecording? "stop" : 'recording'}
+       {isRecording? <FontAwesomeIcon icon={faMicrophoneSlash}/> : <FontAwesomeIcon icon={faMicrophone}/>}
       </button>
       <ReactMic
             record={isRecording}
             onStop={onUpload}
-            className="sound-wave"
             mimeType="audio/mp3"
+            className='mic'
       />
-  </div>;
+  </AudioSt>;
 };
 
 export default AudioMsgBtn;

@@ -6,6 +6,10 @@ import { useModalState } from '../../../misc/custom-hooks';
 import EditableInput from '../../EditableInput';
 import { database } from '../../../misc/firebase';
 import { useParams } from 'react-router-dom';
+import { modalStyle } from '../../SidebarStyled';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 const EditRoomBtnDrawer = () => {
     const {isOpen, open, close}=useModalState();
@@ -28,10 +32,11 @@ const EditRoomBtnDrawer = () => {
      updatedata('description', newDesc);
   };
   return <div>
-      <button onClick={open}> Room Info</button>
-      <Modal isOpen={isOpen} ariaHideApp={false} >
+      <button onClick={open} style={{border:'none', backgroundColor:'white', fontSize:"15px", marginTop:"10px"}}><FontAwesomeIcon icon={faInfoCircle}/></button>
+      <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
+        <button onClick={close} style={{border:'none',backgroundColor: 'white', cursor:'pointer'}}><FontAwesomeIcon icon={faTimes}/></button>    
           <div>
-              <h4>Room Information</h4>
+              <h4>Room Edit</h4>
           </div>
           <div>
               <EditableInput
@@ -47,7 +52,6 @@ const EditRoomBtnDrawer = () => {
               emptyMsg='description can not be empty'
               />
           </div>
-          <footer><button onClick={close}>Close</button></footer>    
       </Modal>
   </div>;
 };

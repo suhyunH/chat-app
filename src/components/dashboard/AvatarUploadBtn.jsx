@@ -11,6 +11,10 @@ import {
 import { useProfile } from '../../context/profile.context';
 import ProfileAvatar from '../ProfileAvatar';
 import { getUserUpdate } from '../../misc/helpers';
+import {UploadAvatarSt} from './dashboard.styled';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUpload } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 const fileInputTypes  =".png, .jpeg, .jpg";
 const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
@@ -70,6 +74,7 @@ const AvatarUploadBtn =()=> {
             await update(ref(database), updates);
            setIsLoading(false);
            alert("avatar has been uploaded");
+           setIsValid(false);
        }catch(err){
            setIsLoading(false);
            alert(err.message);
@@ -78,20 +83,16 @@ const AvatarUploadBtn =()=> {
     }
 
     return (
-        <div>
-          {/* 프로필 사진 미리보기 */}
-          {/* <ProfileAvatar src={profile.avatar} name={profile.name} /> */}
+        <UploadAvatarSt>
             <div>
-                <label htmlFor='avatar-upload'>
-                    Select new avatar
-                <input id="avatar-upload" type="file" accept={fileInputTypes} onChange={onFileInputChange}></input>
-                </label>
-
-{/* 새창에서 열리는 놈들 */}
+              <label htmlFor="avatar-upload">
+                 <ProfileAvatar src={profile.avatar} name={profile.name} />
+              </label>
+                <input className="SearchAvatarBtn" id="avatar-upload" type="file" accept={fileInputTypes} onChange={onFileInputChange} style={{display:"none"}} />
          {isValid &&  
                 <div >
                     <header>
-                        <h3>Adjust and upload new avatar</h3>
+                        <h3>Upload new Profile</h3>
                     </header>
                     <main>
                         {img&&
@@ -103,21 +104,20 @@ const AvatarUploadBtn =()=> {
                             border={10}
                             borderRadius={100}
                             rotate={0}
-                             />)
+                            />)
                         }
                     </main>
                     <footer>
                     <button onClick={onUploadClick} disabled={isLoading}>
-                            upload new avatar
-                        </button>
+                    <FontAwesomeIcon icon={faUpload}/>
+                    </button>
+                    <button onClick={()=>{setIsValid(false)}}> <FontAwesomeIcon icon={faTimes}/> </button>
                     </footer>
                 </div>
          }
-{/*  */}
-
             </div>
             
-        </div>
+        </UploadAvatarSt>
     )
 }
 

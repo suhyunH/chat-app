@@ -1,7 +1,10 @@
 import { GithubAuthProvider, GoogleAuthProvider, linkWithPopup, unlink } from 'firebase/auth';
 import React,{useState} from 'react'
 import { auth} from '../../misc/firebase'
-
+import { ProviderSt } from './dashboard.styled';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 const ProviderBlock=()=> {
     const [isConnected, setIsConnected] = useState({ 
         "google.com": auth.currentUser.providerData.some((data)=>
@@ -38,8 +41,8 @@ const ProviderBlock=()=> {
           await linkWithPopup(auth.currentUser, provider);
           alert(`Linked to ${provider.providerId}`);
           updateIsConnected(provider.providerId, true);
-        }catch{
-            alert("error");
+        }catch(err){
+            alert(err.message);
         }
     };
     const unlinkGoogle=()=>{
@@ -56,25 +59,19 @@ const ProviderBlock=()=> {
         link(new GithubAuthProvider());
     };
     return (
-    <div>
-        {isConnected["google.com"]&&
-           (<span style={{color:"green"}} onClick={unlinkGoogle}>Google Connected</span>)
+    <ProviderSt>
+        {isConnected["google.com"]?
+           (<span className="providerName" style={{color:"green"}} onClick={unlinkGoogle}><FontAwesomeIcon icon={faGoogle}/></span>)
+        :  ( <button onClick={linkGoogle}>Link to Google</button>)
+
         }
 
-        {isConnected["github.com"]&&
-           (<span onClick={unlinkGithub}> GitHub Connected</span>)
+        {isConnected["github.com"]?
+           (<span className="providerName" onClick={unlinkGithub}> <FontAwesomeIcon icon={faGithub}/></span>)
+           : (<button onClick={linkGithub}>Link to Github</button>)
         }
 
-           <div>
-               {!isConnected["google.com"] &&
-              ( <button style={{backgroundColor:"green"}} onClick={linkGoogle}>Link to Google</button>)
-              }
-              {!isConnected["github.com"]&&
-               (<button onClick={linkGithub}>Link to Github</button>)
-              }
-           </div>
-
-    </div>)
+    </ProviderSt>)
     
 }
 

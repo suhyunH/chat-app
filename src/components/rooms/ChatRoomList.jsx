@@ -10,7 +10,7 @@ const rooms = useRooms();
 return <>  
            {rooms? 
                rooms.map(room => 
-                <Link to={`/chat/${room.id}`} key={room.id}>
+                <Link to={`/chat/${room.id}`} key={room.id} style={{textDecoration:'none'}}>
                     <div>
                         <RoomItems room={room}/>
                     </div>

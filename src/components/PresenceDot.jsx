@@ -1,6 +1,7 @@
 import React from 'react';
 import { usePresence } from '../misc/custom-hooks';
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
 const getColor=(presence)=>{
     if(!presence){
         return 'gray';
@@ -17,7 +18,7 @@ const getColor=(presence)=>{
 const PresenceDot = ({uid}) => {
   const presence = usePresence(uid);
     return <div>
-        <button style={{width:'1px', heigth:'5px', borderRadius:'50%',backgroundColor:getColor(presence)}}></button>
+        <button style={{ fontSize: '9px',color:getColor(presence)}}><FontAwesomeIcon icon={faCircle}/></button>
     </div>;
 };
 

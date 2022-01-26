@@ -3,8 +3,11 @@ import React from 'react'
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../misc/firebase';
 import { getUserUpdate } from '../../misc/helpers';
+import { ProfileModal } from '../../styled';
 import EditableInput from '../EditableInput';
+import ProfileAvatar from '../ProfileAvatar';
 import AvatarUploadBtn from './AvatarUploadBtn';
+import { DashSt } from './dashboard.styled';
 import ProviderBlock from './ProviderBlock';
 
 
@@ -29,29 +32,27 @@ const Dashboard=({onSignOut})=> {
      }
 
     }
-    return <>
+    return <DashSt>
         <header>
             <div>
-                <h4>dashboard</h4>
+                <h4>{profile.name}'s Profile</h4>
             </div>
+            {/* <ProfileAvatar src={profile.avatar} name={profile.name} /> */}
         </header>
+            <AvatarUploadBtn/>
         <div>
-            <h3>hey, {profile.name}</h3>
             <ProviderBlock />
-            <hr/>
             <EditableInput
                 name="nickname" 
                 initialValue={profile.name}
                 onSave={onSave}
-                label={<h6>Nickname</h6>}
             />
         </div>
-        <AvatarUploadBtn/>
         <footer>
-            <button onClick={onSignOut}>Sign Out</button>
+            <button className='signOutbtn' onClick={onSignOut}>Sign Out</button>
         </footer>
-
-    </>;
+        </DashSt>
+ 
     
 }
 

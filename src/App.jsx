@@ -7,11 +7,13 @@ import { ProfileProvider } from './context/profile.context';
 import Chat from './pages/home/Chat';
 import Home from './pages/home/index';
 import SignIn from './pages/SignIn';
-
-
+import { Container } from './styled';
+// import  Container from './styled'
 function App() {
 
   return (
+    <Container>
+
     <ProfileProvider>
       <Switch>
         <PublicRoute path="/signin">
@@ -22,6 +24,7 @@ function App() {
         </PrivateRoute>
       </Switch>
     </ProfileProvider>
+    </Container>
   );
 }
 

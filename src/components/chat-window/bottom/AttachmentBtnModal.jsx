@@ -5,7 +5,9 @@ import { storage } from '../../../misc/firebase';
 import { ref, uploadBytes, getDownloadURL, uploadString } from 'firebase/storage';
 import { useParams } from 'react-router';
 import { serverTimestamp } from 'firebase/database';
-
+import { modalStyle } from '../../SidebarStyled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 const MAX_FILE_SIZE = 1000 * 1024 * 5;
 
 const AttachmentBtnModal = ({afterUpload}) => {
@@ -59,10 +61,11 @@ const onUpload = async()=>{
     }
    
 }
+
   
   return <>
-      <button onClick={open}>fileupload</button>
-     <Modal isOpen={isOpen} ariaHideApp={false}>
+      <button onClick={open}><FontAwesomeIcon icon={faFileUpload}/></button>
+     <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
         <h4>Upload files</h4>
         <input type="file" onChange={onChange} multiple/>
         <button disabled={isLoading} onClick={onUpload}>Send to Chat</button>

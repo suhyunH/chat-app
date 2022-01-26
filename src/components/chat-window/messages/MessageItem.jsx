@@ -7,6 +7,7 @@ import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
 import ProfileInfoBtnModal from './ProfileInfoBtnModal';
 import ImageModal from './ImageModal';
+import { MessageItemSt } from './Message.styled';
 
 
 const renderFileMessage =(file)=>{
@@ -41,22 +42,60 @@ const MessageItem = ({message,  handleDelete}) => {
     const isAuthor = auth.currentUser.uid ===author.uid;
 
     
-    return <li style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
-        <div>
+    return <MessageItemSt>
+      {!isAuthor && 
+      <li style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
+        <div className='msgIntro'>
             <PresenceDot uid={author.uid}/>
             <ProfileAvatar src={author.avatar} name={author.name}/>
-            <ProfileInfoBtnModal profile={author}/> 
-            <TimeAgo datetime={createdAt}/>
-        
         </div>
-        <div>
+        <div className='msgMain'>
+            <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
+          <div className='msgText'>
+              {text &&<span>{text}</span>}
+              {file && renderFileMessage(file) }
+          </div>
+              <TimeAgo datetime={createdAt} className='timeAgo'/>
+        </div>
+     </li>}
+     {isAuthor &&
+      <li className='li_ad' style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
+      <div className='msgMain_ad'>
+          <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
+        <div className='msgText_Ad'>
+            {isAuthor&& 
+                    <button className='deleteMsgBtn' onClick={()=>handleDelete(message.id, file)}>x</button>
+              } 
             {text &&<span>{text}</span>}
             {file && renderFileMessage(file) }
         </div>
-        {isAuthor&& 
-        <button onClick={()=>handleDelete(message.id, file)}>x</button>
-        }
-    </li>;
+            <TimeAgo datetime={createdAt} className='timeAgo'/>
+      </div>
+      <div className='msgIntro'>
+          <ProfileAvatar src={author.avatar} name={author.name}/>
+          <PresenceDot uid={author.uid}/>
+      </div>
+  </li>
+     }
+      {/* <li style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
+        <div className='msgIntro'>
+            <PresenceDot uid={author.uid}/>
+            <ProfileAvatar src={author.avatar} name={author.name}/>
+        </div>
+        <div className='msgMain'>
+            <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
+          <div className='msgText'>
+              {text &&<span>{text}</span>}
+              {file && renderFileMessage(file) }
+              {isAuthor&& 
+                      <button className='deleteMsgBtn' onClick={()=>handleDelete(message.id, file)}>x</button>
+                } 
+          </div>
+              <TimeAgo datetime={createdAt} className='timeAgo'/>
+        </div>
+     </li> */}
+
+      </MessageItemSt>
 };
 
 export default MessageItem;

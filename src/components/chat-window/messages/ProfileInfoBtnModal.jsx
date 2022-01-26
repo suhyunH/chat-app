@@ -2,6 +2,7 @@ import React from 'react';
 import { useModalState } from '../../../misc/custom-hooks';
 import Modal from 'react-modal';
 import ProfileAvatar from '../../ProfileAvatar';
+import { modalStyle } from '../../SidebarStyled';
 
 
 const ProfileInfoBtnModal = ({profile}) => {
@@ -14,7 +15,7 @@ const ProfileInfoBtnModal = ({profile}) => {
       <button onClick={open} >
           {name}
       </button>
-       <Modal isOpen={isOpen} ariaHideApp={false}>
+       <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
         <div>
           {name} profile
         </div>

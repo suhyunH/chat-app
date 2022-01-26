@@ -4,6 +4,7 @@ import ChatBottom from '../../components/chat-window/bottom';
 import Messages from '../../components/chat-window/messages';
 import ChatTop from '../../components/chat-window/top';
 import ChatRoomList from '../../components/rooms/ChatRoomList';
+import { ChatSt } from '../../components/SidebarStyled';
 import { CurrentRoomProvider } from '../../context/current-room.context';
 import { useRooms } from '../../context/room.context';
 import { auth } from '../../misc/firebase';
@@ -30,6 +31,7 @@ const currentRoomData ={
 
   return <CurrentRoomProvider data={currentRoomData}>
 
+<ChatSt>
     <div>
       <ChatTop />
     </div>
@@ -39,6 +41,7 @@ const currentRoomData ={
     <div>
       <ChatBottom />
     </div>
+</ChatSt>
   </CurrentRoomProvider>;
 }
 

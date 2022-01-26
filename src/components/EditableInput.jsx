@@ -1,4 +1,9 @@
 import React,{useCallback, useState} from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { EditableSt } from './SidebarStyled';
 
 const EditableInput=({
     initialValue, 
@@ -37,18 +42,16 @@ const EditableInput=({
 
 
     return (
-        <div>
+        <EditableSt>
             {label}
-            
                 <input {...inputProps} 
                 disabled={!isEditable}
                 placeholder={placeholder} 
                 value={input} 
                 onChange={onInputChange}/>
-                <button onClick={onEditClick}>{isEditable? 'close':'edit'}</button>
-                <button onClick={onSaveClick}>check</button>
-
-        </div>
+                <button onClick={onEditClick}>{isEditable? <FontAwesomeIcon icon={faTimes}/>:<FontAwesomeIcon icon={faEdit}/>}</button>
+                <button onClick={onSaveClick}><FontAwesomeIcon icon={faCheck}/></button>
+        </EditableSt>
     )
 }
 

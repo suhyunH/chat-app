@@ -3,6 +3,7 @@ import { serverTimestamp, ref, push } from 'firebase/database';
  import { database, auth } from '../misc/firebase';
 import { useModalState } from '../misc/custom-hooks';
 import Modal from 'react-modal/lib/components/Modal';
+import { CreateRoomSt, modalStyle } from './SidebarStyled';
 
 
 const CreateRoomBtnModal=()=> {
@@ -46,12 +47,12 @@ const CreateRoomBtnModal=()=> {
 
     }
     return (
-        <div>
-            <button onClick={open}>
-            Create new ChatRoom     
+        <CreateRoomSt>
+            <button onClick={open} className='createBtn'>
+            Create new Chat Room     
             </button>  
 
-            <Modal isOpen={isOpen} ariaHideApp={false}>
+            <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
                 <header>
                     <h2>New chat room</h2>
                 </header>
@@ -67,7 +68,7 @@ const CreateRoomBtnModal=()=> {
                         <button onClick={close}>Close</button>
             </Modal>
 
-        </div>
+        </CreateRoomSt>
     )
 }
 

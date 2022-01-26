@@ -1,11 +1,16 @@
 import React from 'react'
 import { Route, Switch} from 'react-router-dom'
 import Sidebar from '../../components/Sidebar'
+import { HomeSt } from '../../components/SidebarStyled'
 import { RoomsProvider } from '../../context/room.context'
 import Chat from './Chat'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faComments } from "@fortawesome/free-regular-svg-icons";
 
 const Home=()=> {
     return (
+        <HomeSt>
+
         <RoomsProvider>
             <Sidebar />
              <Switch>
@@ -13,10 +18,11 @@ const Home=()=> {
                     <Chat />
                 </Route>
                 <Route>
-                    <h6>Select chat</h6>
+                <FontAwesomeIcon icon={faComments} style={{fontSize:'150px', opacity:'0.6', margin:'auto'}}/>
                 </Route>
             </Switch> 
         </RoomsProvider>
+        </HomeSt>
     )
 }
 
