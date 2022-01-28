@@ -22,6 +22,14 @@ export const MessageContainerSt = styled.div`
     background-color: #F0F0F0;
      border-radius: 12px;
      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+ 
+    .dateLine{
+        list-style: none;
+        font-size: 10px;
+        color: darkgray;
+        text-align: center;
+        clear:both;
+    }
  }
 
 `

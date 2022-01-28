@@ -11,7 +11,7 @@ import {
   update,
 } from 'firebase/database';
 import { deleteObject, ref, ref as storageRef } from 'firebase/storage';
-import { transformToArryWithId } from '../../../misc/helpers';
+import { groupBy, transformToArryWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCommentSlash } from '@fortawesome/free-solid-svg-icons';
@@ -74,13 +74,38 @@ const Messages=()=> {
       }
     },[messages])
  
+    const renderMessage = ()=>{
+      const groups = groupBy(messages, item =>
+        new Date(item.createdAt).toDateString()
+      );
+      const items = [];
+      Object.keys(groups).forEach(date => {
+        items.push(
+          <li key={date} className='dateLine'>
+            {date}
+          </li>
+        );
+
+        const msgs = groups[date].map(msg => (
+          <MessageItem
+            key={msg.id}
+            message={msg}
+            handleDelete={handleDelete}
+          />
+        ));
+        items.push(...msgs);
+      });
+      return items;
+    };
+
+
  return <MessageContainerSt>
    <ul className='ulContainer'>
     {isChatEmpty &&<li style={{listStyle:'none'}}>
       <FontAwesomeIcon icon={faCommentSlash} /><span> No messages yet...</span>
       </li>
       }
-    {canShowMessage && messages.map(msg =><MessageItem key={msg.id}  message={msg} handleDelete={handleDelete}/>)}
+    {canShowMessage && renderMessage()}
   </ul>
  </MessageContainerSt>
 }
