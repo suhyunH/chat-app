@@ -22,7 +22,7 @@ text-align: center;
 .signOutbtn{
     background-color: #452007;
     color: white;
-    margin-top: -20px;
+    margin: -20px 0 20px;
     padding : 10px 15px;
     border-radius: 12px;
     width:75%;
@@ -37,10 +37,11 @@ text-align: center;
 .sideProfile{
     display: flex;
     width: 100%;
-    margin: auto
+    margin: auto;
     }
     .toggleBtn{
             border: none;
+            background-color: white;
             border-radius : 50%;
             transition: all 0.3s;
             &:hover{
@@ -49,7 +50,11 @@ text-align: center;
     }
     h2,h3{
         width:100%;
-       margin: 20px
+       margin: 10px 0 10px 20px
+    }
+    p{
+        margin: -9px 0 0 20px;
+        color: #696969;
     }
 }
 `

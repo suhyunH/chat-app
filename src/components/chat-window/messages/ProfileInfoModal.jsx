@@ -3,7 +3,7 @@ import ProfileAvatar from '../../ProfileAvatar'
 import { ProfileInfoSt } from './Message.styled';
 
 const ProfileInfoModal = ({profile}) => {
-    const {name, avatar, createdAt} = profile;
+    const {name, avatar, createdAt, statusMsg} = profile;
     const joinedDate = new Date(createdAt).toLocaleDateString();
   return <ProfileInfoSt>
         <h4>
@@ -15,6 +15,8 @@ const ProfileInfoModal = ({profile}) => {
               name={name}
               />
               <h4>{name}</h4>
+              <h5>{statusMsg}</h5>
+
               <p>joined in {joinedDate}</p>
 
           </div>

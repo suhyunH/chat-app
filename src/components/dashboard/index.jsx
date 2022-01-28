@@ -29,6 +29,22 @@ const Dashboard=({onSignOut})=> {
      }
 
     }
+    const onSaveStatus = async newData=>{
+     try{
+        const updates = await getUserUpdate(
+            profile.uid, 
+            'statusMsg', 
+            newData, 
+            database
+            ); 
+
+        await update(ref(database), updates);
+        alert("status Message has been updated");
+     }catch(err){
+       alert(err.message);
+     }
+
+    }
     return <DashSt>
         <header>
             <div>
@@ -42,6 +58,12 @@ const Dashboard=({onSignOut})=> {
                 name="nickname" 
                 initialValue={profile.name}
                 onSave={onSave}
+                style={{marginBottom: '-6px'}}
+            />
+            <EditableInput
+                name="stateMsg" 
+                initialValue={profile.statusMsg}
+                onSave={onSaveStatus}
             />
         </div>
         <footer>

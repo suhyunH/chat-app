@@ -35,13 +35,14 @@ export const ProfileProvider = ({children})=>{
                userStatusRef = ref(database, `/status/${authObj.uid}`);
                userRef = ref(database, `/profiles/${authObj.uid}`)
                onValue(userRef, DataSnapshot=>{
-                   const {name, createdAt, avatar} = DataSnapshot.val();
+                   const {name, createdAt, avatar,statusMsg } = DataSnapshot.val();
 
                    const data ={
                        name,
                        createdAt,
                        avatar,
                        uid: authObj.uid,
+                       statusMsg, 
                        email: authObj.email
                     };
                     setProfiles(data);

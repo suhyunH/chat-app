@@ -10,11 +10,14 @@ width : 30%;
 max-width: 400px;
 min-width: 300px;
 heigth: 100%;
-margin : 60px 40px 40px 40px;
+margin : 60px auto 40px;
 button{
   border:none;
   text-align: center;
   cursor: pointer;
+}
+&first-child, nth-child(2){
+    width: 100%;
 }
 
 `
@@ -22,6 +25,7 @@ button{
 export const CreateRoomSt = styled.div`
     .createBtn{
     margin: 20px auto 20px;
+    justify-content: center;
     font-size: 16px;
     border-radius: 12px;
     background-color: #ffe812;
@@ -29,7 +33,7 @@ export const CreateRoomSt = styled.div`
     // color: 	#f8f8ff;
     font-weight: bold;
     cursor: pointer;
-    width: 80%;
+    width: 100%;
     padding: 10px 15px;
     transition: 200ms;
     touch-action: manipulation;
@@ -39,20 +43,31 @@ export const CreateRoomSt = styled.div`
 }
 `
 export const CreateRoomModalSt = styled.div`
+
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
     font-weight: 200;
     font-family: 'Noto Sans', sans-serif; 
     text-align:center;
+
+    justify-content: center
+    width: 100%;
+    margin-left: 10px;
+    input, textarea{
+        width: 60%;
+        height: 30px;
+        border: none;
+        border-bottom : 1px solid black;
+        margin: 30px 20px;
+    }
     button{
         border:none;
         text-align: center;
         cursor: pointer;
         margin: 60px auto 20px;
         font-size: 16px;
+        font-weight: bold;
         border-radius: 12px;
-        // background-color: #1DA1F2;
         background-color: #ffe812;
-        // color: 	#f8f8ff;
         width: 80%;
         padding: 10px 15px;
         transition: 200ms;
@@ -135,12 +150,13 @@ h5 {
          background-color: #fffcea;
          border-radius: 12px;
          box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
+         width: 80%;
 
 `
 export const ChatSt = styled.div`
 width:70%;
 max-width: 940px;
-min-width: 500px;
+min-width: 480px;
 height:100%;
 flex-direction: column;
 margin : 60px auto;
@@ -194,10 +210,12 @@ export const EditableSt = styled.div`
   font-family: 'Noto Sans', sans-serif;  
 margin : 30px 0 40px;     
 text-align: center;
+display: flex;
+justify-content:center;
 input{
     width: 200px;
     padding: 10px 5px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
     &:hover{
         box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
@@ -205,13 +223,14 @@ input{
 }
 button{
          border: none;
-         margin-bottom: -5px;
+         margin-top: 6px; 
          background: none;
-         font-size : 17px;
+         font-size : 18px;
          cursor: pointer;
          &:hover{
              color: skyblue;
          }
+
      }
 `
 
@@ -221,6 +240,15 @@ export const modalStyle ={
         margin : 'auto',
         width: '400px',
         height: '400px',
+        borderRadius: '3%',
+        boxShadow:'0 3px 7px rgba(0, 0, 0, 0.3)',
+    },
+}
+export const smModalStyle ={
+    content:{
+        margin : 'auto',
+        width: '300px',
+        height: '250px',
         borderRadius: '3%',
         boxShadow:'0 3px 7px rgba(0, 0, 0, 0.3)',
     },

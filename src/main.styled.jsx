@@ -20,14 +20,16 @@ export const SignSt = styled.div`
 }
 .signContainer{
   display: flex;
-
+  min-width: 1000px;
+  position:absolute;  
+   left : 32%;
+   top: 300px;
 
 
   .cheese{
-    position:absolute;
-    left : 32%;
-    top: 300px;
-    width: 300px;
+     top: 300px;
+     width: 300px;
+     margin-right: 40px;
     animation:cheeze  1s ease-in Infinite Alternate;
   }
 
@@ -36,29 +38,16 @@ export const SignSt = styled.div`
      margin-top : 10;
     }
     100% {
-      margin-top : 60px;
+      margin-top : 20px;
     }
 
    
   }
-  
-  // div{
-  //   position:relative;
-  //   left: 100px;
-  //   top:0;
-  //   width:100px;
-  //   height:100px;
-  //   border-radius:50%;
-  //   background:#000;
-  //   animation:ball cubic-bezier(0.16, 1, 0.3, 1) 1s ease-in Infinite Alternate;
-  // }
+
 
 .signBtn{
   max-width: 250px;
-  position: absolute;
-  left: 60%;
-  right: 10%;
-  top: 25%;
+  margin-top: -100px;
   h5 {
 
     border-bottom: 1px solid darkgray; 
@@ -94,82 +83,7 @@ export const SignSt = styled.div`
 
 }
 
-// font-size: 25px;
-//       .signBtn{
-//         position : absolute;
-//         left: 50%;
-//         top: 70%;
-//         transform: translate(-50%, -20%);
-//         border: none;
-//         border-radius: 12px;
-//         font-size: 18px;
-//         padding : 10px 15px;
-        
-//       }
 
-//       *{
-//         margin:0;
-//         padding:0;
-//       }
-//       .container {
-//         background: #f0f0f0;
-//         box-sizing: border-box;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         width: 100vw;
-//         height: 100vh;
-//       }
-//       .box {
-//         border-radius: 20px;
-//         width: 480px;
-//         height: 200px;
-//         text-align: center;
-//         background: #f0f0f0;
-//         box-shadow:  10px 10px 10px #cccccc,
-//         10px 10px 10px #ffffff,
-//         0 0 0 #cccccc inset,
-//         0 0 0 #ffffff inset;
-//         animation: anime 4s cubic-bezier(0.16, 1, 0.3, 1) 1s ;
-//       }
-  
-//       @keyframes anime {
-//         0% {
-//           width: 60px;
-//           height: 60px;
-//           background: #f0f0f0;
-//           box-shadow:  0 0 0 #cccccc,
-//                        0 0 0 #ffffff,
-//                         10px 10px 10px #cccccc inset,
-//                         -10px -10px 10px #ffffff inset;
-//         }
-//         25% {
-//           width: 60px;
-//           height: 60px;
-//           background: #f8f8f8;
-//           box-shadow:  10px 10px 10px #cccccc,
-//                        10px 10px 10px #ffffff,
-//                        0 0 0 #cccccc inset,
-//                        0 0 0 #ffffff inset;
-//         }
-//         50% {
-//           width: 60px;
-//           height: 240px;
-//           background: #f8f8f8;
-//           box-shadow:  10px 10px 10px #cccccc,
-//                        10px 10px 10px #ffffff,
-//                        0 0 0 #cccccc inset,
-//                        0 0 0 #ffffff inset;
-//         }
-//         100% {
-//           width: 480px;
-//           height: 240px;
-//           background: #fafafa;
-//           box-shadow:  40px 40px 40px #cccccc,
-//                        0 0 0 #ffffff,
-//                        0 0 0 #cccccc inset,
-//                        2px 2px 2px #ffffff inset;
-//         }
 
 `
 

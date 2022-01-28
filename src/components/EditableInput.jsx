@@ -48,10 +48,15 @@ const EditableInput=({
                 disabled={!isEditable}
                 placeholder={placeholder} 
                 value={input} 
-                onChange={onInputChange}/>
+                onChange={onInputChange}
+                />
                 <div>
-                <button onClick={onEditClick}>{isEditable? <FontAwesomeIcon icon={faTimes}/>:<FontAwesomeIcon icon={faEdit}/>}</button>
-                <button onClick={onSaveClick}><FontAwesomeIcon icon={faCheck}/></button>
+                {/* <button onClick={onEditClick}>{isEditable? <FontAwesomeIcon icon={faTimes}/>:<FontAwesomeIcon icon={faEdit}/>}</button>
+                <button onClick={onSaveClick}><FontAwesomeIcon icon={faCheck}/></button> */}
+                 {!isEditable?
+                <button onClick={onEditClick}><FontAwesomeIcon icon={faEdit}/></button>
+                :
+                <button onClick={onSaveClick}><FontAwesomeIcon icon={faCheck}/></button>}
                 </div>
         </EditableSt>
     )

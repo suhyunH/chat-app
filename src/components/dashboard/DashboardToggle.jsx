@@ -36,6 +36,7 @@ const DashboardToggle=()=> {
             <div className='greetMsg'>
                 <h3>Hello,</h3>
                 <h2>{profile.name}👋</h2>
+              {profile.statusMsg &&<p>: {profile.statusMsg}</p> }  
             </div>
         </div>
         <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>

@@ -18,7 +18,7 @@ const Home=()=> {
                     <Chat />
                 </Route>
                 <Route>
-                <FontAwesomeIcon icon={faComments} style={{fontSize:'150px', opacity:'0.6', margin:'auto'}}/>
+                <FontAwesomeIcon icon={faComments} style={{fontSize:'150px', opacity:'0.5', margin:'auto', width:'59.5%'}}/>
                 </Route>
             </Switch> 
         </RoomsProvider>

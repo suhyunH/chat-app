@@ -50,11 +50,9 @@ const CreateRoomModal = () => {
                     <h2>New chat room</h2>
                     <form onSubmit={onSubmit}  >
                         <div>
-                            <label htmlFor='name'>Room name</label>
                             <input value={input}  id="name" name="name" type="text" placeholder='Enter chat room name'required onChange={onChangeInput}/>
                         </div>
                         <div>
-                            <label htmlFor='description'>Description</label>
                             <textarea  id="description"value={textArea} name="description"placeholder='Enter chat room description' required onChange={onChangeTextArea}></textarea> 
                         </div>
                         <button type='submit' disabled={isLoading}>Create New Chat Room</button>

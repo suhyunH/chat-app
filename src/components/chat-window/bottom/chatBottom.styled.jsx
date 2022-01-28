@@ -36,6 +36,30 @@ button{
 
 
 }
+`
+
+export const AttachModalSt= styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+font-weight: 200;
+font-family: 'Noto Sans', sans-serif;  
+
+text-align: center;
+input{
+    margin: 20px 0 50px 40px;
+}
+button{
+    border: none;
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: #452007;
+    color: white;
+    transition: 200ms;
+    touch-action: manipulation;
+    &:hover{
+        box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+    }
+    
+}
 
 
 
