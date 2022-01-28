@@ -1,7 +1,6 @@
 import React from 'react';
 import TimeAgo from 'timeago-react';
 import { useCurrentRoom } from '../../../context/current-room.context';
-import { useHover } from '../../../misc/custom-hooks';
 import { auth } from '../../../misc/firebase';
 import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
@@ -33,7 +32,6 @@ const renderFileMessage =(file)=>{
 
 const MessageItem = ({message,  handleDelete}) => {
     const {author, createdAt, text, file}  = message;
-    const[selfRef, isHover] =useHover();
 
     const isAdmin = useCurrentRoom(v=>v.isAdmin);
     const admins = useCurrentRoom(v=>v.admins);
@@ -43,8 +41,10 @@ const MessageItem = ({message,  handleDelete}) => {
 
     
     return <MessageItemSt>
+
+ 
       {!isAuthor && 
-      <li style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
+      <li>
         <div className='msgIntro'>
             <PresenceDot uid={author.uid}/>
             <ProfileAvatar src={author.avatar} name={author.name}/>
@@ -59,41 +59,25 @@ const MessageItem = ({message,  handleDelete}) => {
         </div>
      </li>}
      {isAuthor &&
-      <li className='li_ad' style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
-      <div className='msgMain_ad'>
-          <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
-        <div className='msgText_Ad'>
-            {isAuthor&& 
-                    <button className='deleteMsgBtn' onClick={()=>handleDelete(message.id, file)}>x</button>
-              } 
-            {text &&<span>{text}</span>}
-            {file && renderFileMessage(file) }
-        </div>
-            <TimeAgo datetime={createdAt} className='timeAgo'/>
-      </div>
-      <div className='msgIntro'>
-          <ProfileAvatar src={author.avatar} name={author.name}/>
-          <PresenceDot uid={author.uid}/>
-      </div>
-  </li>
-     }
-      {/* <li style={{backgroundColor: `${isHover? '#fdfaf8' : ''}`}} ref={selfRef}>
-        <div className='msgIntro'>
-            <PresenceDot uid={author.uid}/>
-            <ProfileAvatar src={author.avatar} name={author.name}/>
-        </div>
-        <div className='msgMain'>
-            <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
-          <div className='msgText'>
-              {text &&<span>{text}</span>}
-              {file && renderFileMessage(file) }
-              {isAuthor&& 
-                      <button className='deleteMsgBtn' onClick={()=>handleDelete(message.id, file)}>x</button>
-                } 
+      <li className='li_ad'>
+          <div className='msgMain_ad'>
+              <ProfileInfoBtnModal  className="modalBtnName" profile={author}/> 
+            <div className='msgText_Ad'>
+                {isAuthor&& 
+                        <button className='deleteMsgBtn' onClick={()=>handleDelete(message.id, file)}>x</button>
+                  } 
+                {text &&<span>{text}</span>}
+                {file && renderFileMessage(file) }
+            </div>
+                <TimeAgo datetime={createdAt} className='timeAgo'/>
           </div>
-              <TimeAgo datetime={createdAt} className='timeAgo'/>
-        </div>
-     </li> */}
+          <div className='msgIntro'>
+              <ProfileAvatar src={author.avatar} name={author.name}/>
+              <PresenceDot uid={author.uid}/>
+          </div>
+         </li>
+         }
+    
 
       </MessageItemSt>
 };

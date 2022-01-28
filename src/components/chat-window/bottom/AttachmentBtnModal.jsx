@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import { useModalState } from '../../../misc/custom-hooks';
 import { storage } from '../../../misc/firebase';
-import { ref, uploadBytes, getDownloadURL, uploadString } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import { useParams } from 'react-router';
-import { serverTimestamp } from 'firebase/database';
 import { modalStyle } from '../../SidebarStyled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 const MAX_FILE_SIZE = 1000 * 1024 * 5;
 
 const AttachmentBtnModal = ({afterUpload}) => {
@@ -64,13 +64,12 @@ const onUpload = async()=>{
 
   
   return <>
-      <button onClick={open}><FontAwesomeIcon icon={faFileUpload}/></button>
+      <button onClick={open}><FontAwesomeIcon icon={faFileUpload} style={{color:'#2a2a2a', padding:'3px', marginBottom:'-5px'}}/></button>
      <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
+        <button onClick={close} style={{border:'none',backgroundColor: 'white', cursor:'pointer'}}><FontAwesomeIcon icon={faTimes}/></button>
         <h4>Upload files</h4>
         <input type="file" onChange={onChange} multiple/>
         <button disabled={isLoading} onClick={onUpload}>Send to Chat</button>
-        <footer>
-        </footer>
     </Modal>
   </>;
 };

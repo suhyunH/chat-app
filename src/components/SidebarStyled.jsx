@@ -1,8 +1,14 @@
 import styled from 'styled-components';
 
+
 export const SidebarSt = styled.div`
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+font-weight: 200;
+font-family: 'Noto Sans', sans-serif; 
 width : 30%;
+max-width: 400px;
+min-width: 300px;
 heigth: 100%;
 margin : 60px 40px 40px 40px;
 button{
@@ -12,38 +18,16 @@ button{
 }
 
 `
-export const SideProfileSt = styled.div`
-.sideProfile{
-    display: flex;
-    width: 100%;
-    margin: auto
-    
-    .toggleBtn{
-            border: none;
-            border-radius : 50%;
-            transition: all 0.3s;
-            &:hover{
-                opacity: 0.8;
-             }
-    }
-    button{
-background-color: white;
-    }
-    h2,h3{
-        width:100%;
-       margin: 20px
-    }
-}
-`
 
 export const CreateRoomSt = styled.div`
-.createBtn{
+    .createBtn{
     margin: 20px auto 20px;
     font-size: 16px;
     border-radius: 12px;
-    background-color: #1DA1F2;
-    color: 	#f8f8ff;
-    // font-weight: bold;
+    background-color: #ffe812;
+    // background-color: #1DA1F2;
+    // color: 	#f8f8ff;
+    font-weight: bold;
     cursor: pointer;
     width: 80%;
     padding: 10px 15px;
@@ -54,11 +38,38 @@ export const CreateRoomSt = styled.div`
     }
 }
 `
+export const CreateRoomModalSt = styled.div`
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    font-weight: 200;
+    font-family: 'Noto Sans', sans-serif; 
+    text-align:center;
+    button{
+        border:none;
+        text-align: center;
+        cursor: pointer;
+        margin: 60px auto 20px;
+        font-size: 16px;
+        border-radius: 12px;
+        // background-color: #1DA1F2;
+        background-color: #ffe812;
+        // color: 	#f8f8ff;
+        width: 80%;
+        padding: 10px 15px;
+        transition: 200ms;
+        touch-action: manipulation;
+        &:hover{
+            box-shadow: 0 0 0 2px rgba(0,0,0,.2), 0 3px 8px 0 rgba(0,0,0,.15);
+        }
+      }
+
+`
+
 
 
 export const RoomItemSt = styled.div`
 color: black;
-
+margin-left: 10px;
+padding-bottom: 5px;
  .roomIntro{
      display: flex;
     h3{
@@ -70,9 +81,12 @@ color: black;
         color : #bfbfbf;
         margin : 9px 0 0 10px;
         font-size: 13px
-    }
+    } 
 
-    
+}
+
+.roomList{
+    margin: -5px 0 5px 5px;
 }
 .roomListContent{
     display:flex;
@@ -95,8 +109,38 @@ display: flex;
 
 
 `
+
+export const ChatRoomListSt = styled.div`
+h5 {
+    width: 75%; 
+    border-bottom: 1px solid #000; 
+    line-height: 0.1em;
+    margin: 15px 0 10px;
+    padding-left: 10px; 
+ } 
+ 
+ h5 span { 
+     background:#fff; 
+     padding:0 10px; 
+ }
+
+ .chatContainer{
+    overflow: auto;
+    height: 400px;
+ }
+
+ .active{
+    .chat{
+        //  background-color: 	#F0F0F0;
+         background-color: #fffcea;
+         border-radius: 12px;
+         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; }
+
+`
 export const ChatSt = styled.div`
 width:70%;
+max-width: 940px;
+min-width: 500px;
 height:100%;
 flex-direction: column;
 margin : 60px auto;
@@ -112,9 +156,28 @@ margin : 60px auto;
     display: none;
    
 }
+`
 
+//loading
+export const LoadingSt = styled.div`
+
+.loadingContainer{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    animation: spin 3s linear infinite;
+
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 `
+
 //profile - modal
 
 export const ProfileImg=styled.div`
@@ -126,11 +189,25 @@ img{
 `
 
 export const EditableSt = styled.div`
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+   font-weight: 200;
+  font-family: 'Noto Sans', sans-serif;  
 margin : 30px 0 40px;     
+text-align: center;
+input{
+    width: 200px;
+    padding: 10px 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    &:hover{
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.3);
+    }
+}
 button{
          border: none;
+         margin-bottom: -5px;
          background: none;
-         font-size : 15px;
+         font-size : 17px;
          cursor: pointer;
          &:hover{
              color: skyblue;
@@ -145,7 +222,7 @@ export const modalStyle ={
         width: '400px',
         height: '400px',
         borderRadius: '3%',
-        boxShadow:'0 3px 7px rgba(0, 0, 0, 0.3)'
-    }
+        boxShadow:'0 3px 7px rgba(0, 0, 0, 0.3)',
+    },
 }
 

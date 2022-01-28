@@ -1,20 +1,21 @@
-import React,{useEffect, useState, useCallback, useRef} from 'react';
+import React,{useEffect, useState, useCallback} from 'react';
 import { useParams } from 'react-router-dom';
 import { database, storage } from '../../../misc/firebase';
 import {
   ref as dbRef,
-  runTransaction,
   off,
   onValue,
   query,
   orderByChild,
-  limitToLast,
   equalTo,
   update,
 } from 'firebase/database';
 import { deleteObject, ref, ref as storageRef } from 'firebase/storage';
 import { transformToArryWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCommentSlash } from '@fortawesome/free-solid-svg-icons';
+import { MessageContainerSt } from './Message.styled';
 
 const Messages=()=> {
   const {chatId} = useParams();
@@ -73,10 +74,15 @@ const Messages=()=> {
       }
     },[messages])
  
- return <ul>
-    {isChatEmpty &&<li>No message yet</li>}
+ return <MessageContainerSt>
+   <ul className='ulContainer'>
+    {isChatEmpty &&<li style={{listStyle:'none'}}>
+      <FontAwesomeIcon icon={faCommentSlash} /><span> No messages yet...</span>
+      </li>
+      }
     {canShowMessage && messages.map(msg =><MessageItem key={msg.id}  message={msg} handleDelete={handleDelete}/>)}
-  </ul>;
+  </ul>
+ </MessageContainerSt>
 }
 
 export default Messages;

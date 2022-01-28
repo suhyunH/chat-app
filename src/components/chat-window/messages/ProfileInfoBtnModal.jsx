@@ -1,36 +1,26 @@
 import React from 'react';
 import { useModalState } from '../../../misc/custom-hooks';
 import Modal from 'react-modal';
-import ProfileAvatar from '../../ProfileAvatar';
 import { modalStyle } from '../../SidebarStyled';
+import ProfileInfoModal from './ProfileInfoModal';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 
 
 const ProfileInfoBtnModal = ({profile}) => {
     
     const{isOpen, close, open} = useModalState();
     const {name, avatar, createdAt} = profile;
-    const joinedDate = new Date(createdAt).toLocaleDateString();
+ 
   return <>
 
-      <button onClick={open} >
+      <button onClick={open} style={{fontWeight: 'bold'}}>
           {name}
       </button>
        <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
-        <div>
-          {name} profile
-        </div>
-          <div>
-              <ProfileAvatar 
-              src={avatar}
-              name={name}
-              />
-              <h4>{name}</h4>
-              <p>joined in {joinedDate}</p>
-
-          </div>
-          <div>
-              <button onClick={close}>close</button>
-          </div>
+   
+       <button onClick={close} style={{border:'none',backgroundColor: 'white', cursor:'pointer'}}><FontAwesomeIcon icon={faTimes}/></button>
+              <ProfileInfoModal profile={profile}/>
 
 
       </Modal>

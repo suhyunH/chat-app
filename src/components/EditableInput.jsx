@@ -9,7 +9,7 @@ const EditableInput=({
     initialValue, 
     onSave, 
     label=null, 
-    placeholder="write your state...", 
+    placeholder=null, 
     emptyMsg="input is empty", 
     ...inputProps
 })=> {
@@ -43,14 +43,16 @@ const EditableInput=({
 
     return (
         <EditableSt>
-            {label}
+             {label}
                 <input {...inputProps} 
                 disabled={!isEditable}
                 placeholder={placeholder} 
                 value={input} 
                 onChange={onInputChange}/>
+                <div>
                 <button onClick={onEditClick}>{isEditable? <FontAwesomeIcon icon={faTimes}/>:<FontAwesomeIcon icon={faEdit}/>}</button>
                 <button onClick={onSaveClick}><FontAwesomeIcon icon={faCheck}/></button>
+                </div>
         </EditableSt>
     )
 }

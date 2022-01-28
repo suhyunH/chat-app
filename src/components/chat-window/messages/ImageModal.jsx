@@ -1,5 +1,5 @@
 import React from 'react';
-import Modal from 'react-modal/lib/components/Modal';
+import Modal from 'react-modal';
 import { useModalState } from '../../../misc/custom-hooks';
 
 

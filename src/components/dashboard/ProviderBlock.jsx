@@ -5,6 +5,7 @@ import { ProviderSt } from './dashboard.styled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faLink } from '@fortawesome/free-solid-svg-icons';
 const ProviderBlock=()=> {
     const [isConnected, setIsConnected] = useState({ 
         "google.com": auth.currentUser.providerData.some((data)=>
@@ -62,13 +63,13 @@ const ProviderBlock=()=> {
     <ProviderSt>
         {isConnected["google.com"]?
            (<span className="providerName" style={{color:"green"}} onClick={unlinkGoogle}><FontAwesomeIcon icon={faGoogle}/></span>)
-        :  ( <button onClick={linkGoogle}>Link to Google</button>)
+        :  ( <button onClick={linkGoogle}> Link to Google <FontAwesomeIcon icon={faLink}/></button>)
 
         }
 
         {isConnected["github.com"]?
            (<span className="providerName" onClick={unlinkGithub}> <FontAwesomeIcon icon={faGithub}/></span>)
-           : (<button onClick={linkGithub}>Link to Github</button>)
+           : (<button onClick={linkGithub}> Link to Github <FontAwesomeIcon icon={faLink}/></button>)
         }
 
     </ProviderSt>)

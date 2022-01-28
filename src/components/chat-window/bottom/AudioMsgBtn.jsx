@@ -52,7 +52,6 @@ const AudioMsgBtn = ({afterUpload}) => {
             record={isRecording}
             onStop={onUpload}
             mimeType="audio/mp3"
-            className='mic'
       />
   </AudioSt>;
 };

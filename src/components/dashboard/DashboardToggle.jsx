@@ -1,4 +1,4 @@
-import { AuthErrorCodes, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import React,{useCallback} from 'react'
 import Dashboard from '.';
 import{auth, database} from "../../misc/firebase";
@@ -7,10 +7,10 @@ import ProfileAvatar from '../ProfileAvatar';
 import { useProfile , isOfflineForDatabase } from '../../context/profile.context';
 import Modal from 'react-modal';
 import { ref, set } from 'firebase/database';
-import { modalStyle, SideProfileSt } from '../SidebarStyled';
+import { modalStyle } from '../SidebarStyled';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
-
+import { SideProfileSt } from './dashboard.styled';
 
 const DashboardToggle=()=> {
     const {profile} = useProfile();
@@ -31,11 +31,11 @@ const DashboardToggle=()=> {
         <SideProfileSt>
         <div className='sideProfile'>
             <button onClick={open} className='toggleBtn'>
-                <ProfileAvatar src={profile.avatar} name={profile.name} />
+                <ProfileAvatar className='profilePic' src={profile.avatar} name={profile.name} />
             </button>
-            <div>
+            <div className='greetMsg'>
                 <h3>Hello,</h3>
-                <h2>{profile.name}.</h2>
+                <h2>{profile.name}👋</h2>
             </div>
         </div>
         <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>

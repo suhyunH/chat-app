@@ -3,9 +3,7 @@ import React from 'react'
 import { useProfile } from '../../context/profile.context';
 import { database } from '../../misc/firebase';
 import { getUserUpdate } from '../../misc/helpers';
-import { ProfileModal } from '../../styled';
 import EditableInput from '../EditableInput';
-import ProfileAvatar from '../ProfileAvatar';
 import AvatarUploadBtn from './AvatarUploadBtn';
 import { DashSt } from './dashboard.styled';
 import ProviderBlock from './ProviderBlock';
@@ -16,7 +14,6 @@ const Dashboard=({onSignOut})=> {
     const {profile} =useProfile(); 
 
     const onSave = async newData=>{
-    //  const userNicknameRef =  ref(database, `/profiles/${profile.uid}/name`);
      try{
         const updates = await getUserUpdate(
             profile.uid, 
@@ -37,7 +34,6 @@ const Dashboard=({onSignOut})=> {
             <div>
                 <h4>{profile.name}'s Profile</h4>
             </div>
-            {/* <ProfileAvatar src={profile.avatar} name={profile.name} /> */}
         </header>
             <AvatarUploadBtn/>
         <div>

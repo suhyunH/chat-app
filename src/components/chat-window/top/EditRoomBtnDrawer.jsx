@@ -31,29 +31,28 @@ const EditRoomBtnDrawer = () => {
   const onDescriptionSave = (newDesc)=>{
      updatedata('description', newDesc);
   };
-  return <div>
+  return <>
       <button onClick={open} style={{border:'none', backgroundColor:'white', fontSize:"15px", marginTop:"10px"}}><FontAwesomeIcon icon={faInfoCircle}/></button>
       <Modal isOpen={isOpen} ariaHideApp={false} style={modalStyle}>
-        <button onClick={close} style={{border:'none',backgroundColor: 'white', cursor:'pointer'}}><FontAwesomeIcon icon={faTimes}/></button>    
-          <div>
-              <h4>Room Edit</h4>
-          </div>
+        <button onClick={close} style={{border:'none',backgroundColor: 'white', cursor:'pointer'}}><FontAwesomeIcon icon={faTimes}/></button>  
           <div>
               <EditableInput
               initialValue={name}
               onSave={onNameSave}
-              label={<h4>Name</h4>}
+              label={<h4>Room Name</h4>}
+              placeholder={"Rewrite chat room's name..."}
               emptyMsg='Name can not be empty'
               />
               <EditableInput
               initialValue={description}
               onSave={onDescriptionSave}
-              label={<h4>description</h4>}
+              label={<h4>Room description</h4>}              
+              placeholder={"Rewrite chat room's description..."}
               emptyMsg='description can not be empty'
               />
           </div>
       </Modal>
-  </div>;
+  </>;
 };
 
 export default memo(EditRoomBtnDrawer);

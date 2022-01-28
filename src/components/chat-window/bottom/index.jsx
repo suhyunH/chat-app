@@ -105,9 +105,9 @@ const Bottom=() =>{
   return<ChatBottomSt> 
       <div className='bottomInputs' style={{clear:'both'}}>
         <AttachmentBtnModal  afterUpload={afterUpload}/>
-        <AudioMsgBtn afterUpload={afterUpload} />
+        {/* <AudioMsgBtn afterUpload={afterUpload} /> */}
         <input className='textInput' placeholder='write a new message here ...' value={input} onChange={onInputChange} onKeyDown={onKeyDown}/>
-        <input type="button" value="send" onClick={onSendClick} disabled={isLoading}/>
+        <input className='inputBtn' type="button" value="send" onClick={onSendClick} disabled={isLoading}/>
       </div>
   </ChatBottomSt>
 }
