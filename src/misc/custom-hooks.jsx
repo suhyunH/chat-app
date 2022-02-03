@@ -71,7 +71,7 @@ export function useHover() {
         node.removeEventListener('mouseout', handleMouseOut);
       };
     },
-    [elementRef.current]
+    []
   );
 
   return [elementRef, isHovered];

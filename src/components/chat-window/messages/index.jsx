@@ -10,7 +10,7 @@ import {
   equalTo,
   update,
 } from 'firebase/database';
-import { deleteObject, ref, ref as storageRef } from 'firebase/storage';
+import { deleteObject, ref as storageRef } from 'firebase/storage';
 import { groupBy, transformToArryWithId } from '../../../misc/helpers';
 import MessageItem from './MessageItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

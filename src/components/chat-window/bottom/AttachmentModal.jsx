@@ -3,14 +3,12 @@ import { storage } from '../../../misc/firebase';
 import { ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import { useParams } from 'react-router';
 import { AttachModalSt } from './chatBottom.styled';
-import { useModalState } from '../../../misc/custom-hooks';
 
 
 const AttachmentModal = ({afterUpload}) => {
     const { chatId } = useParams();
     const[fileList, setFileList]= useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const{isOpen, open, close}= useModalState();
 
   const MAX_FILE_SIZE = 1000 * 1024 * 5;
 

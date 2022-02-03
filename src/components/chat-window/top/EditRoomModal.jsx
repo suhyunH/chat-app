@@ -5,13 +5,11 @@ import { useParams } from 'react-router-dom';
 import EditableInput from '../../EditableInput';
 import { useCurrentRoom } from '../../../context/current-room.context';
 import { RoomInfoModalSt } from './RoomIntro.styled';
-import { useProfile } from '../../../context/profile.context';
 
 
 const EditRoomModal = () => {
     const name = useCurrentRoom(v=>v.name);
     const description = useCurrentRoom(v=>v.description);
-    const admins = useCurrentRoom(v=> v.admins);
     const {chatId} = useParams();
     
     

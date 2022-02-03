@@ -41,17 +41,13 @@ const SignIn=()=> {
             <h1>Cheese</h1> <h2>chat</h2>
         </div>
        <div className='signContainer'>
-            <img src={cheese} className='cheese'/>
+            <img src={cheese} className='cheese' alt='cheeselogo'/>
              <div className='signBtn'>
                 <button onClick={onGithubSignIn}>Continue with github <FontAwesomeIcon icon={faGithub} /></button>
                 <h5><span>or</span></h5>
                 <button className='googleBtn' onClick={onGoogleSignIn}>Continue with google <FontAwesomeIcon icon={faGoogle} /></button>
             </div>
        </div>
-
-
-       
-     
             </SignSt>
     )
 }

@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React from 'react';
 import TimeAgo from 'timeago-react';
 import ProfileAvatar from '../ProfileAvatar';
 import { RoomItemSt } from '../SidebarStyled';
@@ -6,11 +6,6 @@ import { RoomItemSt } from '../SidebarStyled';
 
 const RoomItems = ({ room })=> {
     const { createdAt, name,lastMessage } = room;
-    const [isActive, setIsActvie]=useState(false);
-
-    const onToggle =(ev)=>{
-        setIsActvie(!isActive);
-    }
 
  return <RoomItemSt>
 

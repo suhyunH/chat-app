@@ -11,7 +11,6 @@ const Top=()=> {
   
 
   const name = useCurrentRoom( v=>v.name);
-  const description = useCurrentRoom(v=>v.description);
    return <RoomNav>
 
       <NavLink to="/" style={{color: '#452007'}}><FontAwesomeIcon icon={faArrowLeft}/></NavLink>

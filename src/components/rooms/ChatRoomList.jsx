@@ -2,14 +2,8 @@ import React from 'react';
 import { useRooms } from '../../context/room.context';
 import RoomItems from './RoomItems';
 import { NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { ChatRoomListSt, LoadingSt } from '../SidebarStyled';
+import { ChatRoomListSt } from '../SidebarStyled';
 const ChatRoomList =()=> {
-    const activeStyle = {
-        background:'black',
-        color:'white',
-      };
 const rooms = useRooms();
 
 return <ChatRoomListSt>  

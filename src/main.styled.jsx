@@ -6,7 +6,7 @@ export const SignSt = styled.div`
   position: absolute;
   left: 34%;
   right: 34%;
-  top: 7%;
+  top: 12%;
   h1{
     font-size: 110px;
     color: #ffe812;
@@ -23,7 +23,7 @@ export const SignSt = styled.div`
   min-width: 1000px;
   position:absolute;  
    left : 32%;
-   top: 300px;
+   top: 370px;
 
 
   .cheese{

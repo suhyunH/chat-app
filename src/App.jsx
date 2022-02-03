@@ -8,7 +8,7 @@ import { Container } from './main.styled';
 function App() {
 
   return (
-    <Container>
+<>
       <ProfileProvider>
         <Switch>
           <PublicRoute path="/signin">
@@ -20,7 +20,8 @@ function App() {
         </Switch>
       </ProfileProvider>
       <footer style={{position:"fixed", bottom : '0',fontSize:'15px',color: 'darkgray'}}>&copy;{new Date().getFullYear()} suhyunHan</footer>
-    </Container>
+</>
+
   );
 }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 import TimeAgo from 'timeago-react';
-import { useCurrentRoom } from '../../../context/current-room.context';
 import { auth } from '../../../misc/firebase';
 import PresenceDot from '../../PresenceDot';
 import ProfileAvatar from '../../ProfileAvatar';
@@ -33,10 +32,6 @@ const renderFileMessage =(file)=>{
 const MessageItem = ({message,  handleDelete}) => {
     const {author, createdAt, text, file}  = message;
 
-    const isAdmin = useCurrentRoom(v=>v.isAdmin);
-    const admins = useCurrentRoom(v=>v.admins);
-
-    const isMsgAuthorAdmin = admins.includes(author.uid);
     const isAuthor = auth.currentUser.uid ===author.uid;
 
     
