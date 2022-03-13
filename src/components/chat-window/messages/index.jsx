@@ -39,7 +39,7 @@ const Messages=()=> {
       return ()=>{
         off(messageRef);
       }
-    },[])
+    },[chatId])
 
     const  handleDelete = useCallback(async(msgId, file)=>{
       if(!window.confirm('Delete This Message?')){
