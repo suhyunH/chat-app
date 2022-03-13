@@ -3,7 +3,7 @@ import { storage } from '../../../misc/firebase';
 import { ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import { useParams } from 'react-router';
 import { AttachModalSt } from './chatBottom.styled';
-
+ 
 
 const AttachmentModal = ({afterUpload}) => {
     const { chatId } = useParams();
