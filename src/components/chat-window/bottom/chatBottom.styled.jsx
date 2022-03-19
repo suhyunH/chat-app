@@ -8,12 +8,13 @@ export const AudioSt = styled.div`
 export const ChatBottomSt = styled.div`
 
 .bottomInputs{
-    position: fixed;
+    // position: fixed;
+    text-align:center;
     bottom: 0; 
-    width: 75%;
+    width: 100%;
     min-width: 500px;
- 
     margin-bottom: 100px;
+    padding:0;
 }
 button{
     border: none;
@@ -21,9 +22,10 @@ button{
     color: #452007;
     background-color: white;
     cursor: pointer;
+    width:5%;
 }
 .textInput{
-    width: 65%;
+    width: 80%;
     padding: 4px 3px;
 }
 .inputBtn{
@@ -32,9 +34,7 @@ button{
     margin-left: 5px;
     cursor: pointer;
     background-color: #ffe812;
-    width: 55px;
-
-
+    width: 10%;
 }
 `
 

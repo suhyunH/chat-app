@@ -14,11 +14,10 @@ text-align: center;
 `
 export const MessageContainerSt = styled.div`
  .ulContainer{
-     width: 90%;
+    //  width: 90%;
      height: 50vh;
      overflow: auto;
      padding: 20px 20px 40px 20px;
-     //background-color: #EEE2DC ;
     background-color: #F0F0F0;
      border-radius: 12px;
      box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;

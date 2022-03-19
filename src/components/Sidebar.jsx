@@ -7,15 +7,11 @@ import { SidebarSt } from './SidebarStyled'
 const Sidebar=()=> {
     return (
         <SidebarSt>
-            <div>
                 <DashboardToggle className="dashBtn"/>
-            </div>
-            <div>
+
                 <CreateRoomBtnModal />
-            </div>  
-            <div>
+
                 <ChatRoomList />
-         </div>
         </SidebarSt>
     )
 }

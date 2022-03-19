@@ -6,11 +6,12 @@ export const SidebarSt = styled.div`
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 font-weight: 200;
 font-family: 'Noto Sans', sans-serif; 
-width : 30%;
+// width : 30%;
+align-items:left;
 max-width: 400px;
 min-width: 300px;
 heigth: 100%;
-margin : 60px auto 40px;
+margin : 60px 0 40px 20px;
 button{
   border:none;
   text-align: center;
@@ -160,6 +161,7 @@ min-width: 480px;
 height:100%;
 flex-direction: column;
 margin : 60px auto;
+position:relative;
 
 .chatTitle{
     display: flex
@@ -171,6 +173,9 @@ margin : 60px auto;
 .nonDes{
     display: none;
    
+}
+@media only screen and (max-width:1400px){
+    margin-left: 20px;
 }
 `
 

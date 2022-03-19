@@ -31,15 +31,9 @@ const currentRoomData ={
   return <CurrentRoomProvider data={currentRoomData}>
 
 <ChatSt>
-    <div>
       <ChatTop />
-    </div>
-    <div>
       <Messages />
-    </div>
-    <div>
       <ChatBottom />
-    </div>
 </ChatSt>
   </CurrentRoomProvider>;
 }
